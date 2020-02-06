@@ -8,6 +8,8 @@ As opposed to traditional HIS-RIS-PACS set-ups where Orders are sent to modaliti
 
 mcdcmReporter was presented at [OrthancCon 2019](https://www.orthanc-server.com/static.php?page=conference-schedule).
 
+[Online demo](http://3.0.109.201/isen) is available. Use credentials `user`:`password`. For additional functions (templates, report-writing), please contact me.
+
 ## Prerequisites
 1. [Orthanc](https://orthanc-server.com)
 1. [PostgreSQL](https://www.postgresql.org)
