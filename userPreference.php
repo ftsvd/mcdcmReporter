@@ -56,22 +56,26 @@ if (!$_SESSION['level']) { die('<br><br><br><br>Incomplete login info.<br><a hre
 
 //do user actions
 if ($_POST['action'] != "") {
-	$userFile = file_get_contents($userListFile);
-	$users = explode("\n", $userFile);
-	if ($_POST['action'] == "edit") {
-		$user[$_POST['u']]  = explode("|", $users[$_POST['u']]);
-		$user[$_POST['u']][2] = $_POST['fullname'];
-		$users[$_POST['u']] = implode("|", $user[$_POST['u']]);
-		echo "Name change ";
+	if ($_SESSION['level'] == 'user' && $allowUserLevelToChangeDetails == true) {
+		$userFile = file_get_contents($userListFile);
+		$users = explode("\n", $userFile);
+		if ($_POST['action'] == "edit") {
+			$user[$_POST['u']]  = explode("|", $users[$_POST['u']]);
+			$user[$_POST['u']][2] = $_POST['fullname'];
+			$users[$_POST['u']] = implode("|", $user[$_POST['u']]);
+			echo "Name change ";
+		}
+		if ($_POST['action'] == "changePassword") {
+			$user[$_POST['u']]  = explode("|", $users[$_POST['u']]);
+			$user[$_POST['u']][1] = password_hash($_POST['newPassword'], PASSWORD_BCRYPT);
+			$users[$_POST['u']] = implode("|", $user[$_POST['u']]);
+			echo "Change password ";
+		}
+		file_put_contents('password.lst', implode("\n", $users));
+		echo "successful";
+	} else {
+		echo "Name & password change not allowed for this user level";
 	}
-	if ($_POST['action'] == "changePassword") {
-		$user[$_POST['u']]  = explode("|", $users[$_POST['u']]);
-		$user[$_POST['u']][1] = password_hash($_POST['newPassword'], PASSWORD_BCRYPT);
-		$users[$_POST['u']] = implode("|", $user[$_POST['u']]);
-		echo "Change password ";
-	}
-	file_put_contents('password.lst', implode("\n", $users));
-	echo "successful";
 }
 
 //do template actions

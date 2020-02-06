@@ -68,7 +68,8 @@ $table = "isendat";
 $allowOnlyWhitelistedIPs = false;
 include "allowedIPs.php";
 
-
+// Deny password change for USER level
+$allowUserLevelToChangePassword = false;
 ?>
 
 <!-- Website title -->
