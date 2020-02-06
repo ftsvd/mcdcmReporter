@@ -56,7 +56,9 @@ if (!$_SESSION['level']) { die('<br><br><br><br>Incomplete login info.<br><a hre
 
 //do user actions
 if ($_POST['action'] != "") {
-	if ($_SESSION['level'] == 'user' && $allowUserLevelToChangeDetails == true) {
+	if ($_SESSION['level'] == 'user' && $allowUserLevelToChangeDetails == false) {
+		echo "Name & password change not allowed for this user level";
+	} else {	
 		$userFile = file_get_contents($userListFile);
 		$users = explode("\n", $userFile);
 		if ($_POST['action'] == "edit") {
@@ -73,9 +75,7 @@ if ($_POST['action'] != "") {
 		}
 		file_put_contents('password.lst', implode("\n", $users));
 		echo "successful";
-	} else {
-		echo "Name & password change not allowed for this user level";
-	}
+	}	
 }
 
 //do template actions
