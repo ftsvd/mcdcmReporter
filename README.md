@@ -8,6 +8,8 @@ As opposed to traditional HIS-RIS-PACS set-ups where Orders are sent to modaliti
 
 mcdcmReporter was presented at [OrthancCon 2019](https://www.orthanc-server.com/static.php?page=conference-schedule).
 
+[Online demo](http://3.0.109.201/isen) is available. Use credentials `user`:`password`. For additional functions (templates, report-writing), please contact me.
+
 ## Prerequisites
 1. [Orthanc](https://orthanc-server.com)
 1. [PostgreSQL](https://www.postgresql.org)
@@ -28,9 +30,10 @@ Note: An APP stack, such as [Bitnami WAPP](https://bitnami.com/stack/wapp), is t
 1. Restart the Orthanc service
 
 ### mcdcmReporter
-1. Copy `isen` folder to htdocs (or equivalent)
+1. Create a new folder (default name is `isen`) in htdocs (or equivalent)
+1. Copy this repo to that new folder
 1. In `config.php`:
-    1. Configure `$orthanc` and `$orthancLocal`
+    1. Configure `$orthanc` and `$orthancLocal` (if needed)
     1. Configure the PostgreSQL credentials
         * `$dbname` and `$table` can be left as default
 
@@ -42,6 +45,9 @@ Note: An APP stack, such as [Bitnami WAPP](https://bitnami.com/stack/wapp), is t
 #### To Add Studies into mcdcmReporter Manually
 1. Upload DICOM through Orthanc Explorer (e.g. `http://localhost:8042`)
 1. Studies will appear in mcdcmReporter after `StableAge`
+
+#### If not using `isen` as folder in htdocs
+1. Change line in `addPatient.lua`
 
 ## Additional Setup for Production
 ### Orthanc
