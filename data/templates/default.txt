@@ -1,0 +1,12 @@
+Normal XR Chest|Chest Radiograph
+
+Findings:
+Lung fields are clear.
+No significant fibrosis or consolidation.
+No pleural effusion or pneumothorax.
+Heart size is normal.
+Mediastinal contour is normal.
+No suspicious bony lesion.
+
+Impression:
+Normal CXR
