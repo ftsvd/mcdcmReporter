@@ -1,7 +1,0 @@
-Ultrasound KUB
-
-Both kidneys are normal in size and echogenicity.
-BPL and PT are ...
-
-Impression:
-Normal KUB Ultrasound|radiologist|final|20200922|<end>
