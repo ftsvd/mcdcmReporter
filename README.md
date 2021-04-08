@@ -26,6 +26,8 @@ Note: An APP stack, such as [Bitnami WAPP](https://bitnami.com/stack/wapp), is t
     1. Set `"StableAge" : 3,` for studies to appear in mcdcmReporter faster
     1. Set `"OverwriteInstances" : true,`
     1. Set `"HttpTimeout" : 3,`
+    1. Set `"RemoteAccessAllowed" : true,` to allow access from other clients
+    1. Uncomment `"AuthenticationEnabled" : false,` if `"RemoteAccessAllowed"` is set to `true`
 1. Edit `addPatient.lua` to point to the correct URL for `addPatient.php` (default is `http://localhost/isen/addPatient.php`)
 1. Restart the Orthanc service
 
@@ -50,6 +52,8 @@ Note: An APP stack, such as [Bitnami WAPP](https://bitnami.com/stack/wapp), is t
 1. Change line in `addPatient.lua`
 
 ## Additional Setup for Production
+Note: Some of these steps will break the Basic Setup. Please take the time to study Orthanc before implementing these steps.
+
 ### Orthanc
 1. Set up Orthanc to use PostgreSQL in `postgresql.json`. Refer [Orthanc Book](https://book.orthanc-server.com/plugins/postgresql.html)
 1. Set up Orthanc as a DICOM node in your network. Refer [Step 3 in Beginner's Guide](https://www.orthanc-server.com/resources/2015-02-09-emsy-tutorial/index.html)
